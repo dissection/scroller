@@ -1,0 +1,22 @@
+.w{
+    width: 1200px;
+    margin: 0 auto;
+}
+.floor{
+    height: 600px;
+    background-color: #666666;
+    margin: 20px 0;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+}
+.top{
+    display: none;
+    z-index: 1;
+    height: 100px;
+    position: fixed;
+    width: 100%;
+    background-color: rgba(255, 30, 52, 1);
+}
+

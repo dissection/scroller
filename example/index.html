@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scroller</title>
+    <link href="../base.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+    <script src="../jquery.js"></script>
+    <script src="../jQuery.scroller.js"></script>
+</head>
+<body>
+<div id="top" class="top">
+    1
+</div>
+<div class="w" style=" height: 1200px; background-color: #333333">
+
+</div>
+<div class=" w">
+
+    <div class="mod-floor">
+        <div class="floor" ></div>
+        <div class="floor" ></div>
+        <div class="floor" ></div>
+        <div class="floor" ></div>
+        <div class="floor" ></div>
+        <div class="floor" ></div>
+        <div class="floor" ></div>
+        <div class="floor" ></div>
+        <div class="floor" ></div>
+    </div>
+</div>
+<div id="discuss" style=" height: 1800px;">
+
+</div>
+<script>
+    $(function(){
+        $("body").scroller({
+            delay: 0,
+            startThreshold:1200,
+            end: 3500,
+            onStart: function() {
+                console.log("onStart")
+                $("#top").show();
+            },
+            onEnd: function() {
+                console.log("onEnd")
+                $("#top").hide();
+            }
+        });
+    })
+</script>
+</body>
+</html>

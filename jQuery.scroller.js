@@ -1,6 +1,6 @@
 /* main-1.0.14 jQuery.scroller.js*/
 !function($) {
-    var b = function(element, options) {
+    var Scroller = function(element, options) {
 
             this.opts = $.extend({
                 delay: 50,
@@ -16,7 +16,9 @@
                 this.init()
         }
         ;
-    b.prototype = {
+    Scroller.prototype = {
+
+        VERSION:"1.0.0",
         init: function() {
             this.bindEvent(),
                 $(window).bind("scroll", function() {
@@ -35,19 +37,25 @@
             })
         },
         onScroll: function() {
+            //屏幕卷入距离
             var _scrollTop = $(document).scrollTop();
+            
             var _startTop = this.opts.start || this.$el.offset().top;
             var _endTop = this.opts.end || _startTop + this.$el.outerHeight();
-            $(window).height();
-            this.opts.end && "object" == typeof this.opts.end && (_endTop = this.opts.end.offset().top),
+
+                console.log(this.opts.start instanceof $)
+            this.opts.start && this.opts.start instanceof $ && (_startTop = this.opts.start.offset().top),
+            this.opts.end && this.opts.end instanceof $ && (_endTop = this.opts.end.offset().top),
                 _scrollTop > _startTop + this.opts.startThreshold && _scrollTop < _endTop - this.opts.stopThreshold ? this.opts.onStart.apply(this) : this.opts.onEnd.apply(this),
                 this.opts.onScroll.apply(this)
         }
-    },
-        $.fn.scroller = function(c, d) {
-            return this.each(function() {
-                var e = new b(this,c,d);
-                $(this).data("scroller", e)
-            })
-        }
+    };
+    
+    
+    $.fn.scroller = function(c, d) {
+        return this.each(function() {
+            var e = new Scroller(this,c,d);
+            $(this).data("scroller", e)
+        })
+    }
 }(jQuery);

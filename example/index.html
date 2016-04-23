@@ -18,9 +18,9 @@
 <div class=" w">
 
     <div class="mod-floor">
+        <div class="floor"  id="a1"></div>
         <div class="floor" ></div>
-        <div class="floor" ></div>
-        <div class="floor" ></div>
+        <div class="floor"  id="a2"></div>
         <div class="floor" ></div>
         <div class="floor" ></div>
         <div class="floor" ></div>
@@ -34,10 +34,45 @@
 </div>
 <script>
     $(function(){
-        $("body").scroller({
+        /**
+         * demo 01
+         * */
+       /* $("body").scroller({
             delay: 0,
-            startThreshold:1200,
+            start:1200,
             end: 3500,
+            onStart: function() {
+                console.log("onStart")
+                $("#top").show();
+            },
+            onEnd: function() {
+                console.log("onEnd")
+                $("#top").hide();
+            }
+        });*/
+        /**
+         * demo 02
+         * */
+       /* $(".mod-floor").scroller({
+            delay: 0,
+            onStart: function() {
+                console.log("onStart")
+                $("#top").show();
+            },
+            onEnd: function() {
+                console.log("onEnd")
+                $("#top").hide();
+            }
+        });*/
+
+        /**
+         * demo 03
+         * */
+
+        $(".mod-floor").scroller({
+            delay: 0,
+            start:$("#a1"),
+            end:$("#a2"),
             onStart: function() {
                 console.log("onStart")
                 $("#top").show();
